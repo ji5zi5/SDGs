@@ -1,0 +1,12 @@
+# System files
+DS_Store
+Thumbs.db
+
+# Logs
+*.log
+run_log.txt
+
+# Test Data (Keep dashboard_data.json and cleaned csv)
+*테스트*.CSV
+*.png
+__pycache__/

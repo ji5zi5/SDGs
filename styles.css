@@ -1,0 +1,296 @@
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --primary-color: #2563eb; 
+    --primary-dark: #1e40af;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    --gradient-header: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5; /* Reduced line height */
+}
+
+.container {
+    max-width: 1400px; /* Wider container */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background: var(--gradient-header);
+    color: white;
+    padding: 40px 20px 60px; /* Reduced padding */
+    border-radius: 0 0 20px 20px;
+    margin-bottom: -40px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.header-content h1 {
+    font-size: 2rem; /* Smaller font */
+    margin: 0 0 5px;
+    font-weight: 800;
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Intro Card */
+.intro-card {
+    background: var(--card-bg);
+    padding: 20px; /* Reduced padding */
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 25px;
+    position: relative;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+.intro-header h2 { margin: 0; font-size: 1.2rem; color: #111827; }
+
+.badge {
+    background: #eff6ff;
+    color: var(--primary-color);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.intro-text {
+    font-size: 0.95rem;
+    color: #374151;
+    margin-bottom: 15px;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding-top: 15px;
+    border-top: 1px dashed #e5e7eb;
+}
+
+.stat-box { display: flex; flex-direction: column; align-items: center; }
+.stat-box .label { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2px; }
+.stat-box .value { 
+    font-size: 1.5rem; 
+    font-weight: 800; 
+    color: #111827;
+}
+
+/* Dashboard Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+    gap: 60px; /* Further increased gap */
+    padding-bottom: 60px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Adjust Section 1 and 4 to be full width or side by side depending on preference. 
+   User said "too long vertically", so keeping them dense is key.
+   Let's make Trend and Mix side by side, Regional and Heatmap side by side? 
+   Or Trend Full, others side by side.
+*/
+
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+.card-header { margin-bottom: 15px; }
+.card h3 { 
+    margin: 0 0 5px; 
+    font-size: 1.1rem; 
+    color: #1f2937;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 8px;
+}
+
+.chart-desc {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.chart-container {
+    flex-grow: 1;
+    min-height: 250px; /* Reduced height */
+    max-height: 350px;
+    position: relative;
+    width: 100%;
+}
+
+/* Chart Row for Side-by-Side */
+.chart-row {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+}
+
+.chart-container.half {
+    flex: 1;
+    min-height: 250px;
+}
+
+.card h4 {
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* Header Controls */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.year-buttons {
+    display: flex;
+    background: #e5e7eb;
+    padding: 3px;
+    border-radius: 8px;
+}
+
+.year-btn {
+    border: none;
+    background: transparent;
+    padding: 5px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #6b7280;
+    transition: all 0.2s;
+    font-family: var(--font-family);
+}
+
+.year-btn:hover {
+    color: var(--text-primary);
+}
+
+.year-btn.active {
+    background: white;
+    color: var(--primary-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Ranking Control */
+.ranking-control {
+    margin-left: auto; /* Push to right */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+#sourceSelect {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-family: var(--font-family);
+    font-size: 0.85rem;
+    color: #374151;
+    outline: none;
+    cursor: pointer;
+}
+
+#sourceSelect:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* Heatmap Adjustments */
+.heatmap-table th, .heatmap-table td {
+    padding: 6px; /* Compact table */
+    font-size: 0.85rem;
+}
+
+/* Controls */
+.chart-controls {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    align-items: center; /* Vertical Center */
+    flex-wrap: wrap; 
+}
+
+.btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.btn:hover { background: #f3f4f6; }
+.btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #9ca3af;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .chart-row { flex-direction: column; }
+    .header-controls { margin-top: 10px; flex-direction: column; align-items: flex-start; }
+}
